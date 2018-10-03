@@ -37,7 +37,7 @@ t1 = MPI_Wtime();
          (DARTS * (i + 1)),avepi);
    } */ 
 rounds =ROUNDS/nprocs; 
-for (i = 0; i < rounds; i++) {
+for (i = 0; i < ROUNDS; i++) {
    /* Perform pi calculation on serial processor */
    pi = dboard(DARTS);
    avepi = ((avepi * i) + pi)/(i + 1); 
@@ -46,7 +46,7 @@ for (i = 0; i < rounds; i++) {
    }   
 printf("\nReal value of PI: 3.1415926535897 \n");
 t2 = MPI_Wtime();
-printf("Time required for %d of %d processors on %d rounds : %1.2f\n", rank, nprocs, rounds,  t2-t1);fflush(stdout);   
+printf("Time required for %d of %d processors on %d rounds : %1.2f\n", rank, nprocs, ROUNDS,  t2-t1);fflush(stdout);   
 MPI_Finalize();
 }
 
